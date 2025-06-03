@@ -1,0 +1,124 @@
+/* DOCSCENTER - Main CSS File | Centralizador de Documentos Acadêmicos */
+
+/* Base Styles */
+@import url('./modules/base/reset.css');
+@import url('./modules/base/variables.css');
+@import url('./modules/base/var-darkmode.css');
+@import url('./modules/base/typography.css');
+@import url('./modules/base/animations.css');
+@import url('./modules/base/scrollbar.css');
+
+/* Layout Styles */
+@import url('./modules/layout/container.css');
+@import url('./modules/layout/header.css');
+@import url('./modules/layout/section.css');
+@import url('./modules/layout/footer.css');
+
+/* Component Styles */
+@import url('./modules/components/buttons.css');
+@import url('./modules/components/inputs.css');
+@import url('./modules/components/modal.css');
+@import url('./modules/components/notification.css');
+@import url('./modules/components/theme-toggle.css');
+@import url('./modules/components/flags.css');
+@import url('./modules/components/icon.css');
+@import url('./modules/components/cards.css');
+
+/* Utility Styles */
+@import url('./modules/utils/spacing.css');
+@import url('./modules/utils/responsive.css');
+@import url('./modules/utils/accessibility.css');
+@import url('./modules/utils/darkmode.css');
+@import url('./modules/utils/tooltip.css');
+
+/* Feature Styles */
+@import url('./modules/features/course-cards.css');
+@import url('./modules/features/upload-area.css');
+@import url('./modules/features/document-list.css');
+
+/* DOCSCENTER Custom Styles */
+/* Main Content Layout */
+.main-content {
+  padding-top: 76px;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.1) 0%,
+    rgba(59, 130, 246, 0.05) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-image {
+  position: relative;
+}
+
+/* Shadow Effects */
+.shadow-hover {
+  transition: all 0.3s ease;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Form Enhancements */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Loading Spinner */
+#loading-spinner {
+  z-index: 9999;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Toast Container */
+.toast-container {
+  z-index: 1055;
+}
+
+/* Modal Enhancements */
+.modal-content {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.modal-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+/* Focus Visible */
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.form-check-input:focus-visible {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}

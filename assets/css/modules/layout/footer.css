@@ -1,0 +1,8 @@
+/* Footer Styling */
+footer {
+  margin-top: auto;
+}
+
+footer a:hover {
+  text-decoration: underline !important;
+}

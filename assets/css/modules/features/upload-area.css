@@ -1,0 +1,27 @@
+/* Upload Area */
+.upload-area {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px dashed #dee2e6;
+  background-color: #f8f9fa;
+}
+
+.upload-area:hover {
+  border-color: var(--bs-primary) !important;
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.upload-area.dragover {
+  border-color: var(--bs-primary) !important;
+  background-color: rgba(13, 110, 253, 0.1);
+  transform: scale(1.02);
+}
+
+.upload-area i {
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover i {
+  transform: scale(1.1);
+  color: var(--bs-primary) !important;
+}

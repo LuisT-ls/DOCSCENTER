@@ -1,0 +1,38 @@
+/* Course Cards */
+.course-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.course-card .card-header {
+  padding: 2rem 1rem;
+  border-bottom: none;
+}
+
+.course-card .card-body {
+  padding: 1.5rem;
+}
+
+.course-card .card-footer {
+  padding: 1.5rem;
+  background-color: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.course-card ul li {
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.stats {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

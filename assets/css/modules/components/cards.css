@@ -1,0 +1,26 @@
+/* Statistics Cards */
+.stat-card {
+  transition: all 0.3s ease;
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.stat-card i {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover i {
+  transform: rotateY(360deg);
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  font-weight: 700;
+}

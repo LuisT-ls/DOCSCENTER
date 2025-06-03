@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Centralizador de documentos acadêmicos para estudantes de Engenharia de Produção, Engenharia Elétrica e Bacharel Interdisciplinar em Ciência, Tecnologia e Inovação"
+    />
+    <meta
+      name="keywords"
+      content="documentos, engenharia, faculdade, provas, exercícios, estudos"
+    />
+    <meta name="author" content="DOCSCENTER" />
+
+    <title>DOCSCENTER - Central de Documentos Acadêmicos</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/img/favicon/favicon.ico"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-lg"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+          <i class="fas fa-graduation-cap me-2"></i>
+          DOCSCENTER
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">
+                <i class="fas fa-home me-1"></i>Início
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#courses">
+                <i class="fas fa-book me-1"></i>Cursos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#upload">
+                <i class="fas fa-cloud-upload-alt me-1"></i>Upload
+              </a>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-light me-2" id="theme-toggle">
+              <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <button
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+            >
+              <i class="fas fa-sign-in-alt me-1"></i>Entrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section id="home" class="hero-section py-5 mb-5">
+        <div class="container">
+          <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+              <div class="hero-content">
+                <h1 class="display-4 fw-bold text-primary mb-4">
+                  <i class="fas fa-file-alt text-warning me-3"></i>
+                  Central de Documentos Acadêmicos
+                </h1>
+                <p class="lead mb-4">
+                  Compartilhe e acesse documentos acadêmicos de forma
+                  organizada. Provas, exercícios, atividades e muito mais para
+                  os cursos de
+                  <span class="text-primary fw-semibold"
+                    >Engenharia de Produção</span
+                  >,
+                  <span class="text-success fw-semibold"
+                    >Engenharia Elétrica</span
+                  >
+                  e
+                  <span class="text-warning fw-semibold">BICTI</span>.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                  <button
+                    class="btn btn-primary btn-lg"
+                    onclick="scrollToSection('courses')"
+                  >
+                    <i class="fas fa-search me-2"></i>Explorar Documentos
+                  </button>
+                  <button
+                    class="btn btn-outline-primary btn-lg"
+                    onclick="scrollToSection('upload')"
+                  >
+                    <i class="fas fa-plus me-2"></i>Contribuir
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="hero-image text-center">
+                <div class="floating-cards">
+                  <div class="card shadow-lg mb-3 animate-float">
+                    <div class="card-body text-center">
+                      <i class="fas fa-cogs fa-3x text-primary mb-2"></i>
+                      <h5>Engenharia de Produção</h5>
+                    </div>
+                  </div>
+                  <div class="card shadow-lg mb-3 animate-float-delay">
+                    <div class="card-body text-center">
+                      <i class="fas fa-bolt fa-3x text-warning mb-2"></i>
+                      <h5>Engenharia Elétrica</h5>
+                    </div>
+                  </div>
+                  <div class="card shadow-lg animate-float-delay-2">
+                    <div class="card-body text-center">
+                      <i class="fas fa-atom fa-3x text-success mb-2"></i>
+                      <h5>Bacharel Interdisciplinar em CTI</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Courses Section -->
+      <section id="courses" class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold">
+                <i class="fas fa-university text-primary me-3"></i>
+                Cursos Disponíveis
+              </h2>
+              <p class="lead text-muted">
+                Escolha seu curso e acesse os documentos organizados por
+                disciplinas
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <!-- Engenharia de Produção -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card card h-100 shadow-hover">
+                <div class="card-header bg-primary text-white text-center">
+                  <i class="fas fa-cogs fa-3x mb-3"></i>
+                  <h4 class="mb-0">Engenharia de Produção</h4>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled">
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-primary me-2"></i>
+                      Gestão da Qualidade
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-primary me-2"></i>
+                      Pesquisa Operacional
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-primary me-2"></i>
+                      Engenharia Econômica
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-primary me-2"></i>
+                      Logística e Supply Chain
+                    </li>
+                  </ul>
+                  <div class="stats d-flex justify-content-between mt-3">
+                    <small class="text-muted">
+                      <i class="fas fa-file-alt me-1"></i>
+                      <span id="prod-docs">0</span> documentos
+                    </small>
+                    <small class="text-muted">
+                      <i class="fas fa-download me-1"></i>
+                      <span id="prod-downloads">0</span> downloads
+                    </small>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button
+                    class="btn btn-primary w-100"
+                    onclick="openCourse('producao')"
+                  >
+                    <i class="fas fa-arrow-right me-2"></i>
+                    Acessar Documentos
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Engenharia Elétrica -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card card h-100 shadow-hover">
+                <div class="card-header bg-warning text-dark text-center">
+                  <i class="fas fa-bolt fa-3x mb-3"></i>
+                  <h4 class="mb-0">Engenharia Elétrica</h4>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled">
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-warning me-2"></i>
+                      Circuitos Elétricos
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-warning me-2"></i>
+                      Sistemas de Potência
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-warning me-2"></i>
+                      Eletrônica Analógica
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-warning me-2"></i>
+                      Controle e Automação
+                    </li>
+                  </ul>
+                  <div class="stats d-flex justify-content-between mt-3">
+                    <small class="text-muted">
+                      <i class="fas fa-file-alt me-1"></i>
+                      <span id="eletrica-docs">0</span> documentos
+                    </small>
+                    <small class="text-muted">
+                      <i class="fas fa-download me-1"></i>
+                      <span id="eletrica-downloads">0</span> downloads
+                    </small>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button
+                    class="btn btn-warning w-100"
+                    onclick="openCourse('eletrica')"
+                  >
+                    <i class="fas fa-arrow-right me-2"></i>
+                    Acessar Documentos
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bacharel Interdisciplinar -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card card h-100 shadow-hover">
+                <div class="card-header bg-success text-white text-center">
+                  <i class="fas fa-atom fa-3x mb-3"></i>
+                  <h4 class="mb-0">Bach. CTI</h4>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled">
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-success me-2"></i>
+                      Algoritmos e Programação
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-success me-2"></i>
+                      Física Aplicada
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-success me-2"></i>
+                      Matemática Computacional
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-folder text-success me-2"></i>
+                      Inovação Tecnológica
+                    </li>
+                  </ul>
+                  <div class="stats d-flex justify-content-between mt-3">
+                    <small class="text-muted">
+                      <i class="fas fa-file-alt me-1"></i>
+                      <span id="cti-docs">0</span> documentos
+                    </small>
+                    <small class="text-muted">
+                      <i class="fas fa-download me-1"></i>
+                      <span id="cti-downloads">0</span> downloads
+                    </small>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button
+                    class="btn btn-success w-100"
+                    onclick="openCourse('cti')"
+                  >
+                    <i class="fas fa-arrow-right me-2"></i>
+                    Acessar Documentos
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Upload Section -->
+      <section id="upload" class="py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold">
+                <i class="fas fa-cloud-upload-alt text-primary me-3"></i>
+                Contribua com a Comunidade
+              </h2>
+              <p class="lead text-muted">
+                Compartilhe seus documentos e ajude outros estudantes
+              </p>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="card shadow-lg">
+                <div class="card-body p-4">
+                  <form id="upload-form" class="needs-validation" novalidate>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="course-select" class="form-label">
+                          <i class="fas fa-graduation-cap me-2"></i>Curso
+                        </label>
+                        <select class="form-select" id="course-select" required>
+                          <option value="">Selecione o curso</option>
+                          <option value="producao">
+                            Engenharia de Produção
+                          </option>
+                          <option value="eletrica">Engenharia Elétrica</option>
+                          <option value="cti">Bacharel CTI</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Por favor, selecione um curso.
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="subject-input" class="form-label">
+                          <i class="fas fa-book me-2"></i>Disciplina
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="subject-input"
+                          placeholder="Ex: Cálculo I"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Por favor, informe a disciplina.
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="doc-type" class="form-label">
+                          <i class="fas fa-file-alt me-2"></i>Tipo de Documento
+                        </label>
+                        <select class="form-select" id="doc-type" required>
+                          <option value="">Selecione o tipo</option>
+                          <option value="prova">Prova</option>
+                          <option value="lista">Lista de Exercícios</option>
+                          <option value="atividade">
+                            Atividade Avaliativa
+                          </option>
+                          <option value="apostila">Apostila</option>
+                          <option value="slides">Slides</option>
+                          <option value="outro">Outro</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Por favor, selecione o tipo de documento.
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="doc-title" class="form-label">
+                          <i class="fas fa-tag me-2"></i>Título do Documento
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="doc-title"
+                          placeholder="Ex: P1 - Cálculo I - 2024.1"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Por favor, informe o título do documento.
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="doc-description" class="form-label">
+                          <i class="fas fa-align-left me-2"></i>Descrição
+                          (Opcional)
+                        </label>
+                        <textarea
+                          class="form-control"
+                          id="doc-description"
+                          rows="3"
+                          placeholder="Adicione uma descrição do documento..."
+                        ></textarea>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="file-input" class="form-label">
+                          <i class="fas fa-paperclip me-2"></i>Arquivo
+                        </label>
+                        <div
+                          class="upload-area border-2 border-dashed rounded p-4 text-center"
+                          id="upload-area"
+                        >
+                          <i
+                            class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"
+                          ></i>
+                          <p class="mb-2">Arraste e solte o arquivo aqui ou</p>
+                          <input
+                            type="file"
+                            class="form-control d-none"
+                            id="file-input"
+                            accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx"
+                            required
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary"
+                            onclick="document.getElementById('file-input').click()"
+                          >
+                            <i class="fas fa-folder-open me-2"></i>Escolher
+                            Arquivo
+                          </button>
+                          <small class="text-muted d-block mt-2">
+                            Formatos aceitos: PDF, DOC, DOCX, PPT, PPTX, XLS,
+                            XLSX (Máx. 10MB)
+                          </small>
+                        </div>
+                        <div class="invalid-feedback">
+                          Por favor, selecione um arquivo.
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="terms-check"
+                            required
+                          />
+                          <label class="form-check-label" for="terms-check">
+                            Concordo com os
+                            <a
+                              href="./pages/terms-of-service.html"
+                              target="_blank"
+                              >termos de uso</a
+                            >
+                            e
+                            <a href="./pages/privacy.html" target="_blank"
+                              >política de privacidade</a
+                            >
+                          </label>
+                          <div class="invalid-feedback">
+                            Você deve concordar com os termos.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <button
+                          type="submit"
+                          class="btn btn-primary btn-lg w-100"
+                        >
+                          <i class="fas fa-upload me-2"></i>
+                          Enviar Documento
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="py-5">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+              <div class="stat-card">
+                <i class="fas fa-file-alt fa-3x text-primary mb-3"></i>
+                <h3 class="fw-bold" id="total-docs">0</h3>
+                <p class="text-muted">Documentos</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+              <div class="stat-card">
+                <i class="fas fa-download fa-3x text-success mb-3"></i>
+                <h3 class="fw-bold" id="total-downloads">0</h3>
+                <p class="text-muted">Downloads</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+              <div class="stat-card">
+                <i class="fas fa-users fa-3x text-warning mb-3"></i>
+                <h3 class="fw-bold" id="total-users">0</h3>
+                <p class="text-muted">Usuários</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+              <div class="stat-card">
+                <i class="fas fa-graduation-cap fa-3x text-info mb-3"></i>
+                <h3 class="fw-bold">3</h3>
+                <p class="text-muted">Cursos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>
+              <i class="fas fa-graduation-cap me-2"></i>
+              DOCSCENTER
+            </h5>
+            <p class="mb-0">
+              Centralizando o conhecimento acadêmico para todos os estudantes.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="mb-0">
+              <a
+                href="./pages/privacy.html"
+                class="text-light text-decoration-none me-3"
+                >Privacidade</a
+              >
+              <a
+                href="./pages/terms-of-service.html"
+                class="text-light text-decoration-none"
+                >Termos</a
+              >
+            </p>
+            <small class="text-muted"
+              >© 2024 DOCSCENTER. Todos os direitos reservados.</small
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title">
+              <i class="fas fa-sign-in-alt me-2"></i>
+              Entrar no DOCSCENTER
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="login-form">
+              <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="seu@email.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Sua senha"
+                  required
+                />
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-sign-in-alt me-2"></i>
+                  Entrar
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                  <i class="fab fa-google me-2"></i>
+                  Entrar com Google
+                </button>
+              </div>
+            </form>
+            <hr />
+            <div class="text-center">
+              <p class="mb-0">
+                Não tem conta?
+                <a href="#" class="text-decoration-none">Cadastre-se</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div
+      id="loading-spinner"
+      class="position-fixed top-50 start-50 translate-middle d-none"
+      style="z-index: 9999"
+    >
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div
+      class="toast-container position-fixed top-0 end-0 p-3"
+      id="toast-container"
+    ></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>

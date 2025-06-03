@@ -1,0 +1,122 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .floating-cards {
+    margin-top: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .floating-cards .card {
+    width: 120px;
+    margin: 0.5rem;
+  }
+
+  .hero-section .row {
+    min-height: auto;
+  }
+
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+
+  .course-card .card-header {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .btn-lg {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .floating-cards .card {
+    width: 100px;
+  }
+
+  .stat-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .hero-content .d-flex {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+
+  .hero-content .btn {
+    width: 100%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .navbar,
+  .modal,
+  .toast-container,
+  #loading-spinner,
+  footer {
+    display: none !important;
+  }
+
+  .main-content {
+    padding-top: 0;
+  }
+
+  .shadow-hover,
+  .course-card {
+    box-shadow: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .course-card {
+    border: 2px solid currentColor;
+  }
+
+  .upload-area {
+    border-width: 3px;
+  }
+
+  .btn {
+    border-width: 2px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delay,
+  .animate-float-delay-2 {
+    animation: none;
+  }
+
+  .shadow-hover,
+  .course-card,
+  .stat-card,
+  .upload-area,
+  .btn {
+    transition: none;
+  }
+}
