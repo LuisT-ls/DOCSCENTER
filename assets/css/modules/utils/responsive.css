@@ -1,115 +1,830 @@
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-content {
-    padding-top: 70px;
+/* ============================================
+   DOCSCENTER - Responsive Design System
+   Mobile-first approach with breakpoints
+   ============================================ */
+
+/* ============================================
+   BREAKPOINTS REFERENCE
+   ============================================
+   xs: 0px - 575px    (Extra small devices)
+   sm: 576px - 767px  (Small devices)
+   md: 768px - 991px  (Medium devices)
+   lg: 992px - 1199px (Large devices)
+   xl: 1200px - 1399px (Extra large devices)
+   xxl: 1400px+       (Extra extra large)
+   ============================================ */
+
+/* ============================================
+   BASE RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Container fluid adjustments */
+.container-fluid {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Viewport units fixes for mobile */
+.full-height {
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height */
+}
+
+/* ============================================
+   TYPOGRAPHY RESPONSIVE
+   ============================================ */
+
+/* Extra Small Devices (Portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .display-1 {
+    font-size: 2.5rem;
+  }
+  .display-2 {
+    font-size: 2rem;
+  }
+  .display-3 {
+    font-size: 1.75rem;
+  }
+  .display-4 {
+    font-size: 1.5rem;
+  }
+  .display-5 {
+    font-size: 1.25rem;
+  }
+  .display-6 {
+    font-size: 1.1rem;
   }
 
+  h1 {
+    font-size: 1.75rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1.1rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h6 {
+    font-size: 0.875rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  /* Text alignment on mobile */
+  .text-xs-center {
+    text-align: center !important;
+  }
+  .text-xs-left {
+    text-align: left !important;
+  }
+  .text-xs-right {
+    text-align: right !important;
+  }
+}
+
+/* Small Devices (Landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+  .display-5 {
+    font-size: 1.5rem;
+  }
+
+  .text-sm-center {
+    text-align: center !important;
+  }
+  .text-sm-left {
+    text-align: left !important;
+  }
+  .text-sm-right {
+    text-align: right !important;
+  }
+}
+
+/* Medium Devices (Tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
   .display-4 {
     font-size: 2.5rem;
   }
-
   .display-5 {
     font-size: 2rem;
   }
 
-  .floating-cards {
-    margin-top: 2rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  .text-md-center {
+    text-align: center !important;
+  }
+  .text-md-left {
+    text-align: left !important;
+  }
+  .text-md-right {
+    text-align: right !important;
+  }
+}
+
+/* ============================================
+   NAVIGATION RESPONSIVE
+   ============================================ */
+
+/* Mobile Navigation */
+@media (max-width: 767.98px) {
+  .navbar-brand {
+    font-size: 1.25rem;
   }
 
-  .floating-cards .card {
-    width: 120px;
-    margin: 0.5rem;
+  .navbar-nav {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  /* Navbar actions stack on mobile */
+  .navbar .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navbar .d-flex .btn {
+    width: 100%;
+  }
+}
+
+/* Tablet Navigation */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ============================================
+   MAIN CONTENT RESPONSIVE
+   ============================================ */
+
+/* Mobile main content */
+@media (max-width: 767.98px) {
+  .main-content {
+    padding-top: 70px;
+  }
+
+  /* Remove excessive padding on mobile */
+  .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Adjust container padding */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Tablet main content */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .main-content {
+    padding-top: 76px;
+  }
+}
+
+/* ============================================
+   HERO SECTION RESPONSIVE
+   ============================================ */
+
+/* Mobile Hero */
+@media (max-width: 767.98px) {
+  .hero-section {
+    padding: 2rem 0 !important;
+    text-align: center;
   }
 
   .hero-section .row {
     min-height: auto;
   }
 
-  .hero-section {
-    padding: 3rem 0;
+  .hero-content {
+    margin-bottom: 2rem;
   }
 
-  .stat-card h3 {
+  .hero-content h1 {
     font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
   }
 
-  .course-card .card-header {
-    padding: 1.5rem 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .display-4 {
-    font-size: 2rem;
-  }
-
-  .btn-lg {
-    padding: 0.6rem 1.2rem;
+  .hero-content .lead {
     font-size: 1rem;
-  }
-
-  .floating-cards .card {
-    width: 100px;
-  }
-
-  .stat-card {
-    padding: 1rem 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-content .d-flex {
     flex-direction: column;
     gap: 1rem !important;
+    align-items: stretch;
   }
 
   .hero-content .btn {
     width: 100%;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Floating cards mobile layout */
+  .floating-cards {
+    margin-top: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .floating-cards .card {
+    width: 100px;
+    margin: 0;
+  }
+
+  .floating-cards .card-body {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .floating-cards .card-body i {
+    font-size: 1.5rem !important;
+  }
+
+  .floating-cards .card-body h5 {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
   }
 }
 
-/* Print Styles */
+/* Tablet Hero */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .floating-cards {
+    margin-top: 1.5rem;
+  }
+
+  .floating-cards .card {
+    width: 130px;
+  }
+}
+
+/* Large screens hero adjustments */
+@media (min-width: 1200px) {
+  .hero-section {
+    padding: 4rem 0;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* ============================================
+   COURSE CARDS RESPONSIVE
+   ============================================ */
+
+/* Mobile Course Cards */
+@media (max-width: 575.98px) {
+  .course-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .course-card .card-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .course-card .card-header i {
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .course-card .card-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .course-card .card-body {
+    padding: 1rem;
+  }
+
+  .course-card .card-body ul li {
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+  }
+
+  .course-card .card-footer {
+    padding: 1rem;
+  }
+
+  .course-card .card-footer .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .stats small {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet Course Cards */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .course-card .card-header {
+    padding: 1.75rem 1rem;
+  }
+
+  .course-card .card-header h4 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================
+   UPLOAD SECTION RESPONSIVE
+   ============================================ */
+
+/* Mobile Upload */
+@media (max-width: 767.98px) {
+  .upload-area {
+    padding: 2rem !important;
+    margin: 1rem 0;
+  }
+
+  .upload-area i {
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .upload-area p {
+    font-size: 0.9rem;
+  }
+
+  .upload-area .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .upload-area small {
+    font-size: 0.75rem;
+    margin-top: 1rem !important;
+  }
+
+  /* Form adjustments */
+  .needs-validation .row .col-md-6,
+  .needs-validation .row .col-12 {
+    margin-bottom: 1rem;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  textarea.form-control {
+    min-height: 100px;
+  }
+
+  .form-check-label {
+    font-size: 0.9rem;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Tablet Upload */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .upload-area {
+    padding: 2.5rem !important;
+  }
+}
+
+/* ============================================
+   STATISTICS RESPONSIVE
+   ============================================ */
+
+/* Mobile Statistics */
+@media (max-width: 575.98px) {
+  .stat-card {
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-card i {
+    font-size: 2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .stat-card h3 {
+    font-size: 1.75rem;
+    margin: 0.25rem 0;
+  }
+
+  .stat-card p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+/* Tablet Statistics */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   MODAL RESPONSIVE
+   ============================================ */
+
+/* Mobile Modal */
+@media (max-width: 575.98px) {
+  .modal-dialog {
+    margin: 1rem;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .modal-content {
+    border-radius: 10px;
+  }
+
+  .modal-header {
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  .modal-header .modal-title {
+    font-size: 1.1rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-body .form-label {
+    font-size: 0.9rem;
+  }
+
+  .modal-body .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* ============================================
+   FOOTER RESPONSIVE
+   ============================================ */
+
+/* Mobile Footer */
+@media (max-width: 767.98px) {
+  footer .row {
+    text-align: center;
+  }
+
+  footer .col-md-6:first-child {
+    margin-bottom: 1rem;
+  }
+
+  footer h5 {
+    font-size: 1.2rem;
+  }
+
+  footer p,
+  footer small {
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    display: inline-block;
+    margin: 0 0.5rem;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Hide/Show on specific breakpoints */
+@media (max-width: 575.98px) {
+  .d-xs-none {
+    display: none !important;
+  }
+  .d-xs-inline {
+    display: inline !important;
+  }
+  .d-xs-inline-block {
+    display: inline-block !important;
+  }
+  .d-xs-block {
+    display: block !important;
+  }
+  .d-xs-flex {
+    display: flex !important;
+  }
+  .d-xs-inline-flex {
+    display: inline-flex !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .d-sm-none {
+    display: none !important;
+  }
+  .d-sm-inline {
+    display: inline !important;
+  }
+  .d-sm-inline-block {
+    display: inline-block !important;
+  }
+  .d-sm-block {
+    display: block !important;
+  }
+  .d-sm-flex {
+    display: flex !important;
+  }
+  .d-sm-inline-flex {
+    display: inline-flex !important;
+  }
+}
+
+/* Responsive spacing utilities */
+@media (max-width: 575.98px) {
+  .p-xs-0 {
+    padding: 0 !important;
+  }
+  .p-xs-1 {
+    padding: 0.25rem !important;
+  }
+  .p-xs-2 {
+    padding: 0.5rem !important;
+  }
+  .p-xs-3 {
+    padding: 1rem !important;
+  }
+
+  .m-xs-0 {
+    margin: 0 !important;
+  }
+  .m-xs-1 {
+    margin: 0.25rem !important;
+  }
+  .m-xs-2 {
+    margin: 0.5rem !important;
+  }
+  .m-xs-3 {
+    margin: 1rem !important;
+  }
+
+  .mb-xs-0 {
+    margin-bottom: 0 !important;
+  }
+  .mb-xs-1 {
+    margin-bottom: 0.25rem !important;
+  }
+  .mb-xs-2 {
+    margin-bottom: 0.5rem !important;
+  }
+  .mb-xs-3 {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Responsive flex utilities */
+@media (max-width: 767.98px) {
+  .flex-mobile-column {
+    flex-direction: column !important;
+  }
+
+  .flex-mobile-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  .justify-content-mobile-center {
+    justify-content: center !important;
+  }
+
+  .align-items-mobile-center {
+    align-items: center !important;
+  }
+
+  .text-mobile-center {
+    text-align: center !important;
+  }
+}
+
+/* Responsive width utilities */
+@media (max-width: 575.98px) {
+  .w-xs-100 {
+    width: 100% !important;
+  }
+  .w-xs-75 {
+    width: 75% !important;
+  }
+  .w-xs-50 {
+    width: 50% !important;
+  }
+  .w-xs-25 {
+    width: 25% !important;
+  }
+}
+
+/* ============================================
+   TOUCH DEVICES OPTIMIZATIONS
+   ============================================ */
+
+/* Touch-friendly button sizes */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+  }
+
+  .btn-sm {
+    min-height: 38px;
+    min-width: 38px;
+  }
+
+  .btn-lg {
+    min-height: 50px;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Remove hover effects on touch devices */
+  .shadow-hover:hover,
+  .course-card:hover,
+  .stat-card:hover,
+  .upload-area:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+
+  /* Larger tap targets */
+  .navbar-toggler {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .form-check-input {
+    min-height: 20px;
+    min-width: 20px;
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION ADJUSTMENTS
+   ============================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    padding: 1rem 0 !important;
+  }
+
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .floating-cards {
+    display: none;
+  }
+
+  .main-content {
+    padding-top: 60px;
+  }
+
+  .py-5 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+}
+
+/* ============================================
+   HIGH DPI DISPLAYS
+   ============================================ */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Crisp borders and shadows for retina displays */
+  .card,
+  .btn,
+  .form-control,
+  .form-select {
+    border-width: 0.5px;
+  }
+
+  .shadow-sm {
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.075) !important;
+  }
+}
+
+/* ============================================
+   PRINT RESPONSIVE
+   ============================================ */
+
 @media print {
+  /* Hide interactive elements */
   .navbar,
   .modal,
   .toast-container,
   #loading-spinner,
-  footer {
+  footer,
+  .btn,
+  .upload-area,
+  .floating-cards {
     display: none !important;
   }
 
+  /* Optimize for print */
   .main-content {
     padding-top: 0;
   }
 
-  .shadow-hover,
-  .course-card {
+  .hero-section {
+    background: none !important;
+    padding: 1rem 0 !important;
+  }
+
+  .course-card,
+  .stat-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Print-friendly colors */
+  .text-primary,
+  .text-success,
+  .text-warning,
+  .text-info {
+    color: #000 !important;
+  }
+
+  /* Remove shadows and effects */
+  * {
     box-shadow: none !important;
+    text-shadow: none !important;
   }
 }
 
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  .course-card {
-    border: 2px solid currentColor;
-  }
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
 
-  .upload-area {
-    border-width: 3px;
-  }
-
-  .btn {
-    border-width: 2px;
-  }
-}
-
-/* Reduced Motion */
+/* Reduce animations on low-end devices */
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-float-delay,
   .animate-float-delay-2 {
-    animation: none;
+    animation: none !important;
   }
 
   .shadow-hover,
@@ -117,6 +832,15 @@
   .stat-card,
   .upload-area,
   .btn {
-    transition: none;
+    transition: none !important;
+  }
+}
+
+/* Battery optimization */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
