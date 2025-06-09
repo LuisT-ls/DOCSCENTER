@@ -13,6 +13,7 @@
 @import url('./modules/layout/header.css');
 @import url('./modules/layout/section.css');
 @import url('./modules/layout/footer.css');
+@import url('./modules/layout/hero.css');
 
 /* Component Styles */
 @import url('./modules/components/buttons.css');
