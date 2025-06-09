@@ -1,42 +1,102 @@
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.6;
-  color: var(--dark-color);
-}
-
-.main-content {
-  padding-top: 76px;
-}
-
-/* Hero Section - Minimalista */
 .hero-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.1) 0%,
+    rgba(59, 130, 246, 0.05) 100%
+  );
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../img/hero-pattern.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  opacity: 0.05;
+  z-index: -1;
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--dark-color);
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: var(--space-5);
+  line-height: 1.2;
 }
 
 .hero-content .lead {
-  font-size: 1.1rem;
-  color: var(--secondary-color);
-  margin-bottom: 2rem;
-  max-width: 600px;
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-6);
 }
 
 .btn-hero {
-  padding: 0.75rem 2rem;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  padding: var(--space-3) var(--space-5);
+  font-weight: 500;
+  border-radius: var(--border-radius-lg);
+  transition: var(--transition-default);
 }
 
-.btn-hero:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+.btn-hero i {
+  margin-right: var(--space-2);
+}
+
+/* Responsividade para hero section */
+@media (max-width: 992px) {
+  .hero-section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content .lead {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-7);
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .btn-hero {
+    padding: var(--space-2) var(--space-4);
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-content .lead {
+    font-size: 1rem;
+  }
+
+  .d-flex.flex-wrap {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .btn-hero {
+    width: 100%;
+  }
 }

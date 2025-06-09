@@ -1,15 +1,100 @@
-/* Button Enhancements */
+/* Botões base */
 .btn {
-  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--border-radius);
   font-weight: 500;
-  transition: all 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: var(--transition-default);
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
+/* Botões principais */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
 }
 
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Botões secundários */
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Botões de sucesso */
+.btn-success {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: var(--color-success-dark);
+}
+
+/* Botões de aviso */
+.btn-warning {
+  background-color: var(--color-warning);
+  color: var(--color-gray-900);
+}
+
+.btn-warning:hover {
+  background-color: var(--color-warning-dark);
+}
+
+/* Botões grandes */
 .btn-lg {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
+  padding: var(--space-4) var(--space-6);
+  font-size: 1rem;
+}
+
+/* Botões pequenos */
+.btn-sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.8rem;
+}
+
+/* Botões full width em mobile */
+@media (max-width: 768px) {
+  .btn-block-mobile {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Botões com ícones */
+.btn-icon {
+  gap: var(--space-2);
+}
+
+/* Botão hero especial */
+.btn-hero {
+  padding: var(--space-4) var(--space-6);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 576px) {
+  .btn-hero {
+    width: 100%;
+    margin-bottom: var(--space-3);
+  }
 }

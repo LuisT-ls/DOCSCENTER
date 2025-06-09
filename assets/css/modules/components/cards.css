@@ -1,26 +1,66 @@
-/* Statistics Cards */
-.stat-card {
-  transition: all 0.3s ease;
-  padding: 1.5rem 1rem;
-  border-radius: 10px;
-  text-align: center;
+/* Card base */
+.card {
+  border: none;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: var(--transition-default);
+  background-color: white;
+  box-shadow: var(--shadow-sm);
 }
 
-.stat-card:hover {
-  transform: scale(1.05);
-  background-color: rgba(0, 0, 0, 0.02);
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
-.stat-card i {
-  transition: all 0.3s ease;
+/* Cabeçalho do card */
+.card-header {
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--color-gray-200);
 }
 
-.stat-card:hover i {
-  transform: rotateY(360deg);
+/* Corpo do card */
+.card-body {
+  padding: var(--space-5);
 }
 
-.stat-card h3 {
-  font-size: 2.5rem;
-  margin: 0.5rem 0;
-  font-weight: 700;
+/* Rodapé do card */
+.card-footer {
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* Card de curso especial */
+.course-card .card-header {
+  border-bottom: none;
+  padding: var(--space-6) var(--space-4);
+}
+
+.course-card .card-body {
+  padding: var(--space-4);
+}
+
+.course-card .card-footer {
+  padding: var(--space-4);
+  background-color: transparent;
+  border-top: none;
+}
+
+/* Efeito hover para cards de curso */
+.course-card.shadow-hover:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsividade para cards */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: var(--space-5);
+  }
+
+  .card-header,
+  .card-body,
+  .card-footer {
+    padding: var(--space-4);
+  }
 }

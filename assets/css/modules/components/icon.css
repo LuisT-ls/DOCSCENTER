@@ -1,0 +1,60 @@
+/* Ícones base */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tamanhos de ícones */
+.icon-xs {
+  font-size: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-sm {
+  font-size: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-md {
+  font-size: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-lg {
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-xl {
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Ícones em botões */
+.btn .icon {
+  margin-right: var(--space-2);
+}
+
+/* Ícones em listas */
+.list-item .icon {
+  margin-right: var(--space-3);
+}
+
+/* Ajuste para mobile */
+@media (max-width: 576px) {
+  .icon-sm {
+    font-size: 0.875rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .btn .icon {
+    margin-right: var(--space-1);
+  }
+}

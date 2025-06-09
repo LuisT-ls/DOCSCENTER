@@ -1,0 +1,38 @@
+/* Flags para status */
+.flag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.flag-primary {
+  background-color: var(--color-primary-light);
+  color: white;
+}
+
+.flag-success {
+  background-color: var(--color-success-light);
+  color: white;
+}
+
+.flag-warning {
+  background-color: var(--color-warning-light);
+  color: var(--color-gray-900);
+}
+
+.flag-danger {
+  background-color: var(--color-danger-light);
+  color: white;
+}
+
+/* Flags pequenas para mobile */
+@media (max-width: 576px) {
+  .flag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+  }
+}

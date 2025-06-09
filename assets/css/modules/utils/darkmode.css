@@ -1,57 +1,63 @@
-/* Dark Mode Specific Overrides */
-[data-theme='dark'] {
-  --bs-body-bg: #1a1a1a;
-  --bs-body-color: #ffffff;
-  --bs-border-color: #404040;
+/* Dark mode base */
+.dark-mode {
+  color-scheme: dark;
 }
 
-[data-theme='dark'] .bg-light {
-  background-color: #2d2d2d !important;
+/* Backgrounds */
+.dark-mode body {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-200);
 }
 
-[data-theme='dark'] .card {
-  background-color: #2d2d2d;
-  border-color: #404040;
-  color: #ffffff;
+.dark-mode .card {
+  background-color: var(--color-gray-800);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
-[data-theme='dark'] .text-muted {
-  color: #adb5bd !important;
+/* Textos */
+.dark-mode .text-muted {
+  color: var(--color-gray-400) !important;
 }
 
-[data-theme='dark'] .upload-area {
-  background-color: #2d2d2d;
-  border-color: #404040;
-  color: #ffffff;
+/* Inputs */
+.dark-mode .form-control,
+.dark-mode .form-select,
+.dark-mode .form-check-input {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
+  color: var(--color-gray-200);
 }
 
-[data-theme='dark'] .upload-area:hover {
-  background-color: rgba(13, 110, 253, 0.1);
+.dark-mode .form-control:focus,
+.dark-mode .form-select:focus {
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
 }
 
-[data-theme='dark'] .modal-content {
-  background-color: #2d2d2d;
-  color: #ffffff;
+/* Cards */
+.dark-mode .card-header {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
 }
 
-[data-theme='dark'] .form-control,
-[data-theme='dark'] .form-select {
-  background-color: #404040;
-  border-color: #555;
-  color: #ffffff;
+.dark-mode .card-footer {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
 }
 
-[data-theme='dark'] .form-control:focus,
-[data-theme='dark'] .form-select:focus {
-  background-color: #404040;
-  border-color: var(--bs-primary);
-  color: #ffffff;
+/* Área de upload */
+.dark-mode .upload-area {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-600);
 }
 
-[data-theme='dark'] .stats {
-  border-top-color: #404040;
+/* Toast */
+.dark-mode .toast {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-700);
 }
 
-[data-theme='dark'] .course-card .card-footer {
-  border-top-color: #404040;
+.dark-mode .toast-header {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
+  color: var(--color-gray-200);
 }
