@@ -156,3 +156,95 @@ function updateUserUI(user) {
 
 // Escuta mudanças de autenticação
 onAuthChange(updateUserUI)
+
+// Darkmode global
+function setDarkMode(enabled) {
+  const body = document.body
+  if (enabled) {
+    body.classList.add('dark-mode')
+    localStorage.setItem('theme', 'dark')
+    setThemeIcon('dark')
+  } else {
+    body.classList.remove('dark-mode')
+    localStorage.setItem('theme', 'light')
+    setThemeIcon('light')
+  }
+}
+
+function setThemeIcon(theme) {
+  const icon = document.getElementById('theme-icon')
+  if (icon) {
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'
+  }
+}
+
+function initDarkMode() {
+  // Detecta preferência salva ou do sistema
+  const saved = localStorage.getItem('theme')
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  setDarkMode(saved === 'dark' || (!saved && prefersDark))
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('#theme-toggle')
+    if (btn) {
+      const isDark = document.body.classList.contains('dark-mode')
+      setDarkMode(!isDark)
+    }
+  })
+}
+
+initDarkMode()
+
+// Ao atualizar UI do usuário, manter o botão de tema funcional
+const origUpdateUserUI = updateUserUI
+updateUserUI = function (user) {
+  origUpdateUserUI(user)
+  // Garante que o botão de tema continue funcionando após troca de UI
+  initDarkMode()
+}
+
+// Upload de documentos para o Firebase Storage
+function setupUploadForm() {
+  const uploadForm = document.getElementById('upload-form')
+  if (!uploadForm) return
+  uploadForm.addEventListener('submit', async e => {
+    e.preventDefault()
+    const spinner = document.getElementById('loading-spinner')
+    if (spinner) spinner.classList.remove('d-none')
+    try {
+      // Pega os campos do formulário
+      const curso = document.getElementById('course-select').value
+      const disciplina = document.getElementById('subject-input').value
+      const tipo = document.getElementById('doc-type').value
+      const titulo = document.getElementById('doc-title').value
+      const descricao = document.getElementById('doc-description').value
+      const fileInput = document.getElementById('file-input')
+      const file = fileInput.files[0]
+      if (!file) throw new Error('Selecione um arquivo para enviar.')
+      // Verifica se usuário está logado
+      const user = window.firebase.auth.getAuth(window.firebaseApp).currentUser
+      if (!user)
+        throw new Error('Você precisa estar logado para enviar documentos.')
+      // Caminho no Storage
+      const storage = window.firebase.storage.getStorage(window.firebaseApp)
+      const filePath = `documentos/${curso}/${disciplina}/${Date.now()}-${
+        file.name
+      }`
+      const storageRef = window.firebase.storage.ref(storage, filePath)
+      // Faz upload
+      await window.firebase.storage.uploadBytes(storageRef, file)
+      // Pega a URL de download
+      const url = await window.firebase.storage.getDownloadURL(storageRef)
+      // Exibe sucesso
+      showToast('Documento enviado com sucesso!', 'success')
+      uploadForm.reset()
+      // Aqui você pode salvar os metadados no Firestore futuramente
+      // Exemplo: salvarDocumentoFirestore({curso, disciplina, tipo, titulo, descricao, url, user: user.uid})
+    } catch (err) {
+      showToast('Erro ao enviar documento: ' + (err.message || err), 'danger')
+    } finally {
+      if (spinner) spinner.classList.add('d-none')
+    }
+  })
+}
+setupUploadForm()
