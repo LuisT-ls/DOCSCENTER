@@ -1,22 +1,16 @@
-// Importa as funções necessárias do Firebase Auth
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from 'firebase/auth'
+// Este arquivo assume que o Firebase foi carregado via CDN e está disponível em window.firebase
 import { app } from './firebase.js'
 
-const auth = getAuth(app)
-const googleProvider = new GoogleAuthProvider()
+const auth = window.firebase.auth.getAuth(app)
+const googleProvider = new window.firebase.auth.GoogleAuthProvider()
 
 // Login com Google
 export async function loginWithGoogle() {
   try {
-    const result = await signInWithPopup(auth, googleProvider)
+    const result = await window.firebase.auth.signInWithPopup(
+      auth,
+      googleProvider
+    )
     return result.user
   } catch (error) {
     throw error
@@ -26,7 +20,11 @@ export async function loginWithGoogle() {
 // Login com Email/Senha
 export async function loginWithEmail(email, password) {
   try {
-    const result = await signInWithEmailAndPassword(auth, email, password)
+    const result = await window.firebase.auth.signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    )
     return result.user
   } catch (error) {
     throw error
@@ -36,7 +34,11 @@ export async function loginWithEmail(email, password) {
 // Cadastro com Email/Senha
 export async function registerWithEmail(email, password) {
   try {
-    const result = await createUserWithEmailAndPassword(auth, email, password)
+    const result = await window.firebase.auth.createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    )
     return result.user
   } catch (error) {
     throw error
@@ -46,7 +48,7 @@ export async function registerWithEmail(email, password) {
 // Logout
 export async function logout() {
   try {
-    await signOut(auth)
+    await window.firebase.auth.signOut(auth)
   } catch (error) {
     throw error
   }
@@ -54,7 +56,7 @@ export async function logout() {
 
 // Verifica usuário autenticado
 export function onAuthChange(callback) {
-  return onAuthStateChanged(auth, callback)
+  return window.firebase.auth.onAuthStateChanged(auth, callback)
 }
 
 export { auth }
