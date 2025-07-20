@@ -70,6 +70,7 @@
       import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js'
       import * as firebaseAuth from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js'
       import * as firebaseStorage from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js'
+      import * as firebaseFirestore from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js'
 
       const firebaseConfig = {
         apiKey: 'AIzaSyC_B7hFIpd5xSDbGsTvQSeOv2_rf8FrLUI',
@@ -83,7 +84,11 @@
 
       const firebaseApp = initializeApp(firebaseConfig)
       const firebaseAnalytics = getAnalytics(firebaseApp)
-      window.firebase = { auth: firebaseAuth, storage: firebaseStorage }
+      window.firebase = {
+        auth: firebaseAuth,
+        storage: firebaseStorage,
+        firestore: firebaseFirestore
+      }
       window.firebaseApp = firebaseApp
       window.firebaseAnalytics = firebaseAnalytics
     </script>

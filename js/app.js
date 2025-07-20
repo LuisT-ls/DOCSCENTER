@@ -203,9 +203,51 @@ updateUserUI = function (user) {
   initDarkMode()
 }
 
+// Função para salvar metadados no Firestore
+async function salvarDocumentoFirestore(dados) {
+  const db = window.firebase.firestore.getFirestore(window.firebaseApp)
+  const docRef = window.firebase.firestore.collection(db, 'documentos')
+  await window.firebase.firestore.addDoc(docRef, dados)
+}
+
 // Upload de documentos para o Firebase Storage
 function setupUploadForm() {
   const uploadForm = document.getElementById('upload-form')
+  const fileInput = document.getElementById('file-input')
+  const previewDiv = document.createElement('div')
+  previewDiv.id = 'file-preview'
+  previewDiv.className = 'mb-3'
+  fileInput.parentNode.insertBefore(previewDiv, fileInput.nextSibling)
+
+  // Pré-visualização do arquivo
+  fileInput.addEventListener('change', () => {
+    previewDiv.innerHTML = ''
+    const file = fileInput.files[0]
+    if (!file) return
+    if (file.type.startsWith('image/')) {
+      const img = document.createElement('img')
+      img.src = URL.createObjectURL(file)
+      img.style.maxWidth = '200px'
+      img.style.maxHeight = '200px'
+      img.onload = () => URL.revokeObjectURL(img.src)
+      previewDiv.appendChild(img)
+    } else if (file.type === 'application/pdf') {
+      const pdfIcon = document.createElement('i')
+      pdfIcon.className = 'fas fa-file-pdf fa-3x text-danger'
+      previewDiv.appendChild(pdfIcon)
+      const span = document.createElement('span')
+      span.textContent = ' ' + file.name
+      previewDiv.appendChild(span)
+    } else {
+      const fileIcon = document.createElement('i')
+      fileIcon.className = 'fas fa-file-alt fa-3x text-primary'
+      previewDiv.appendChild(fileIcon)
+      const span = document.createElement('span')
+      span.textContent = ' ' + file.name
+      previewDiv.appendChild(span)
+    }
+  })
+
   if (!uploadForm) return
   uploadForm.addEventListener('submit', async e => {
     e.preventDefault()
@@ -218,7 +260,6 @@ function setupUploadForm() {
       const tipo = document.getElementById('doc-type').value
       const titulo = document.getElementById('doc-title').value
       const descricao = document.getElementById('doc-description').value
-      const fileInput = document.getElementById('file-input')
       const file = fileInput.files[0]
       if (!file) throw new Error('Selecione um arquivo para enviar.')
       // Verifica se usuário está logado
@@ -235,11 +276,21 @@ function setupUploadForm() {
       await window.firebase.storage.uploadBytes(storageRef, file)
       // Pega a URL de download
       const url = await window.firebase.storage.getDownloadURL(storageRef)
-      // Exibe sucesso
+      // Salva metadados no Firestore
+      await salvarDocumentoFirestore({
+        curso,
+        disciplina,
+        tipo,
+        titulo,
+        descricao,
+        url,
+        uploadedBy: user.uid,
+        uploaderName: user.displayName || user.email,
+        createdAt: window.firebase.firestore.serverTimestamp()
+      })
       showToast('Documento enviado com sucesso!', 'success')
       uploadForm.reset()
-      // Aqui você pode salvar os metadados no Firestore futuramente
-      // Exemplo: salvarDocumentoFirestore({curso, disciplina, tipo, titulo, descricao, url, user: user.uid})
+      previewDiv.innerHTML = ''
     } catch (err) {
       showToast('Erro ao enviar documento: ' + (err.message || err), 'danger')
     } finally {
