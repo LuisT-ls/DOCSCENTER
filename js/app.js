@@ -112,6 +112,13 @@ function updateUserUI(user) {
   if (!navbar) return
   // Remove elementos antigos
   navbar.innerHTML = ''
+  // Botão de tema sempre visível
+  const themeBtn = document.createElement('button')
+  themeBtn.className = 'btn btn-outline-light me-2'
+  themeBtn.id = 'theme-toggle'
+  themeBtn.setAttribute('aria-label', 'Alternar tema')
+  themeBtn.innerHTML = '<i class="fas fa-moon" id="theme-icon"></i>'
+  navbar.appendChild(themeBtn)
   if (user) {
     // Usuário autenticado
     const avatar = document.createElement('img')
@@ -140,16 +147,11 @@ function updateUserUI(user) {
     navbar.appendChild(logoutBtn)
   } else {
     // Não autenticado
-    const themeBtn = document.createElement('button')
-    themeBtn.className = 'btn btn-outline-light me-2'
-    themeBtn.id = 'theme-toggle'
-    themeBtn.innerHTML = '<i class="fas fa-moon" id="theme-icon"></i>'
     const loginBtn = document.createElement('button')
     loginBtn.className = 'btn btn-success'
     loginBtn.setAttribute('data-bs-toggle', 'modal')
     loginBtn.setAttribute('data-bs-target', '#loginModal')
     loginBtn.innerHTML = '<i class="fas fa-sign-in-alt me-1"></i>Entrar'
-    navbar.appendChild(themeBtn)
     navbar.appendChild(loginBtn)
   }
 }

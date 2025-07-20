@@ -11,7 +11,19 @@
 
 .dark-mode .card {
   background-color: var(--color-gray-800);
+  color: var(--color-gray-100);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .card-header,
+.dark-mode .card-footer {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
+  color: var(--color-gray-100);
+}
+
+.dark-mode .course-card .card-footer {
+  background-color: transparent;
 }
 
 /* Textos */
@@ -22,10 +34,15 @@
 /* Inputs */
 .dark-mode .form-control,
 .dark-mode .form-select,
-.dark-mode .form-check-input {
+.dark-mode .form-check-input,
+.dark-mode textarea {
   background-color: var(--color-gray-700);
   border-color: var(--color-gray-600);
   color: var(--color-gray-200);
+}
+
+.dark-mode .form-label {
+  color: var(--color-gray-300);
 }
 
 .dark-mode .form-control:focus,
@@ -33,31 +50,74 @@
   box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
 }
 
-/* Cards */
-.dark-mode .card-header {
-  background-color: var(--color-gray-700);
-  border-color: var(--color-gray-600);
-}
-
-.dark-mode .card-footer {
-  background-color: var(--color-gray-700);
-  border-color: var(--color-gray-600);
+.dark-mode .invalid-feedback {
+  color: var(--color-danger-light);
 }
 
 /* Área de upload */
 .dark-mode .upload-area {
   background-color: var(--color-gray-800);
   border-color: var(--color-gray-600);
+  color: var(--color-gray-200);
+}
+
+.dark-mode .upload-area:hover {
+  background-color: var(--color-gray-700);
 }
 
 /* Toast */
 .dark-mode .toast {
   background-color: var(--color-gray-800);
   border-color: var(--color-gray-700);
+  color: var(--color-gray-100);
 }
 
 .dark-mode .toast-header {
   background-color: var(--color-gray-700);
   border-color: var(--color-gray-600);
   color: var(--color-gray-200);
+}
+
+/* Modal */
+.dark-mode .modal-content {
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-100);
+}
+
+.dark-mode .modal-header,
+.dark-mode .modal-footer {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
+  color: var(--color-gray-100);
+}
+
+/* Footer */
+.dark-mode .main-footer {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-300);
+}
+.dark-mode .footer-bottom {
+  background-color: var(--color-gray-800);
+}
+.dark-mode .footer-bottom-links a {
+  color: var(--color-gray-400);
+}
+.dark-mode .footer-bottom-links a:hover {
+  color: var(--color-primary);
+}
+.dark-mode .links-title,
+.dark-mode .brand-name,
+.dark-mode .newsletter-title {
+  color: var(--color-gray-100);
+}
+.dark-mode .newsletter-description {
+  color: var(--color-gray-400);
+}
+.dark-mode .social-link {
+  background-color: var(--color-gray-700);
+  color: var(--color-gray-100);
+}
+.dark-mode .social-link:hover {
+  background-color: var(--color-primary);
+  color: #fff;
 }
