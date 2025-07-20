@@ -1,0 +1,58 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradientes minimalistas -->
+  <defs>
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Círculo principal com sombra sutil -->
+  <circle cx="40" cy="40" r="36" fill="url(#mainGrad)" opacity="0.1"/>
+  <circle cx="40" cy="40" r="32" fill="url(#mainGrad)"/>
+  
+  <!-- Grid de conexões minimalista -->
+  <g stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.8">
+    <!-- Linhas horizontais -->
+    <line x1="25" y1="30" x2="55" y2="30"/>
+    <line x1="25" y1="40" x2="55" y2="40"/>
+    <line x1="25" y1="50" x2="55" y2="50"/>
+    
+    <!-- Linhas verticais -->
+    <line x1="30" y1="25" x2="30" y2="55"/>
+    <line x1="40" y1="25" x2="40" y2="55"/>
+    <line x1="50" y1="25" x2="50" y2="55"/>
+  </g>
+  
+  <!-- Pontos de conexão elegantes -->
+  <g fill="#ffffff">
+    <circle cx="30" cy="30" r="1.5"/>
+    <circle cx="40" cy="30" r="1.5"/>
+    <circle cx="50" cy="30" r="1.5"/>
+    <circle cx="30" cy="40" r="2" opacity="0.9"/>
+    <circle cx="40" cy="40" r="2.5"/>
+    <circle cx="50" cy="40" r="2" opacity="0.9"/>
+    <circle cx="30" cy="50" r="1.5"/>
+    <circle cx="40" cy="50" r="1.5"/>
+    <circle cx="50" cy="50" r="1.5"/>
+  </g>
+  
+  <!-- Documentos minimalistas sobrepostos -->
+  <g transform="translate(18, 16)" opacity="0.3">
+    <!-- Documento base -->
+    <rect x="0" y="6" width="10" height="12" rx="1" fill="#ffffff" stroke="none"/>
+    <!-- Documento meio -->
+    <rect x="2" y="4" width="10" height="12" rx="1" fill="#ffffff" stroke="none"/>
+    <!-- Documento frente -->
+    <rect x="4" y="2" width="10" height="12" rx="1" fill="url(#docGrad)" stroke="none"/>
+    
+    <!-- Linhas de texto minimalistas -->
+    <line x1="6" y1="6" x2="11" y2="6" stroke="#3b82f6" stroke-width="0.5" opacity="0.7"/>
+    <line x1="6" y1="8" x2="10" y2="8" stroke="#3b82f6" stroke-width="0.5" opacity="0.7"/>
+    <line x1="6" y1="10" x2="9" y2="10" stroke="#3b82f6" stroke-width="0.5" opacity="0.7"/>
+  </g>
+</svg>
