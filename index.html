@@ -829,7 +829,11 @@
                   <i class="fas fa-sign-in-alt me-2"></i>
                   Entrar
                 </button>
-                <button type="button" class="btn btn-outline-primary">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  id="google-login-btn"
+                >
                   <i class="fab fa-google me-2"></i>
                   Entrar com Google
                 </button>
@@ -839,7 +843,93 @@
             <div class="text-center">
               <p class="mb-0">
                 Não tem conta?
-                <a href="#" class="text-decoration-none">Cadastre-se</a>
+                <a
+                  href="#"
+                  class="text-decoration-none"
+                  data-bs-toggle="modal"
+                  data-bs-target="#registerModal"
+                  >Cadastre-se</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title">
+              <i class="fas fa-user-plus me-2"></i>
+              Criar Conta no DOCSCENTER
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="register-form">
+              <div class="mb-3">
+                <label for="register-name" class="form-label">Nome</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="register-name"
+                  placeholder="Seu nome completo"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="register-email" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="register-email"
+                  placeholder="seu@email.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="register-password" class="form-label">Senha</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="register-password"
+                  placeholder="Crie uma senha"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="register-password2" class="form-label"
+                  >Confirme a Senha</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="register-password2"
+                  placeholder="Repita a senha"
+                  required
+                />
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success">
+                  <i class="fas fa-user-plus me-2"></i>
+                  Cadastrar
+                </button>
+              </div>
+            </form>
+            <hr />
+            <div class="text-center">
+              <p class="mb-0">
+                Já tem conta?
+                <a href="#" class="text-decoration-none" id="login-link"
+                  >Entrar</a
+                >
               </p>
             </div>
           </div>
