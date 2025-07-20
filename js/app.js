@@ -105,3 +105,54 @@ function showToast(message, type = 'info') {
   container.appendChild(toast)
   setTimeout(() => toast.remove(), 4000)
 }
+
+// Atualiza a interface do usuário conforme o estado de autenticação
+function updateUserUI(user) {
+  const navbar = document.querySelector('.navbar .d-flex.align-items-center')
+  if (!navbar) return
+  // Remove elementos antigos
+  navbar.innerHTML = ''
+  if (user) {
+    // Usuário autenticado
+    const avatar = document.createElement('img')
+    avatar.src =
+      user.photoURL ||
+      'https://ui-avatars.com/api/?name=' +
+        encodeURIComponent(user.displayName || user.email)
+    avatar.alt = 'Avatar'
+    avatar.style.width = '32px'
+    avatar.style.height = '32px'
+    avatar.style.borderRadius = '50%'
+    avatar.style.objectFit = 'cover'
+    avatar.className = 'me-2'
+    const nameSpan = document.createElement('span')
+    nameSpan.textContent = user.displayName || user.email
+    nameSpan.className = 'me-3 text-white fw-semibold'
+    const logoutBtn = document.createElement('button')
+    logoutBtn.className = 'btn btn-outline-light'
+    logoutBtn.innerHTML = '<i class="fas fa-sign-out-alt me-1"></i>Sair'
+    logoutBtn.onclick = async () => {
+      await logout()
+      showToast('Logout realizado com sucesso!', 'success')
+    }
+    navbar.appendChild(avatar)
+    navbar.appendChild(nameSpan)
+    navbar.appendChild(logoutBtn)
+  } else {
+    // Não autenticado
+    const themeBtn = document.createElement('button')
+    themeBtn.className = 'btn btn-outline-light me-2'
+    themeBtn.id = 'theme-toggle'
+    themeBtn.innerHTML = '<i class="fas fa-moon" id="theme-icon"></i>'
+    const loginBtn = document.createElement('button')
+    loginBtn.className = 'btn btn-success'
+    loginBtn.setAttribute('data-bs-toggle', 'modal')
+    loginBtn.setAttribute('data-bs-target', '#loginModal')
+    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt me-1"></i>Entrar'
+    navbar.appendChild(themeBtn)
+    navbar.appendChild(loginBtn)
+  }
+}
+
+// Escuta mudanças de autenticação
+onAuthChange(updateUserUI)
