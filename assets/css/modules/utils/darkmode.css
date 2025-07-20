@@ -121,3 +121,27 @@
   background-color: var(--color-primary);
   color: #fff;
 }
+
+/* Placeholder em darkmode */
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: var(--color-gray-400);
+  opacity: 1;
+}
+
+/* Sections e backgrounds claros no darkmode */
+.dark-mode section,
+.dark-mode .bg-light {
+  background-color: var(--color-gray-900) !important;
+  color: var(--color-gray-200);
+}
+
+/* Títulos claros no darkmode */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+  color: var(--color-gray-100) !important;
+}
